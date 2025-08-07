@@ -35,15 +35,14 @@ m_input = st.sidebar.slider("毛利率变动", 0.0, 0.06, 0.0, 0.01, format="%.2
 st.sidebar.write(f"当前毛利率变动: {m_input*100:.2f}%")
 
 # 分析部分
-st.markdown("## 多场景对比图")
 
-scenario_var = st.selectbox("选择要对比的变量", ["毛利率变动 m", "人力成本变动 h", "平台费变动 p"])
+scenario_var = st.selectbox("选择要对比的变量", ["毛利率变动", "人力成本变动", "平台费变动"])
 x_vals = np.linspace(0, 0.4, 50)
 
 # 不同变量的对比值设定
-if scenario_var == "毛利率变动 m":
+if scenario_var == "毛利率变动":
     scenario_values = [0.00, 0.02, 0.04, 0.06]
-elif scenario_var == "人力成本变动 h":
+elif scenario_var == "人力成本变动":
     scenario_values = [-0.20, -0.10, 0.00, 0.05]
 else:  # 平台费变动 p
     scenario_values = [-0.30, -0.20, -0.10, 0.00]
@@ -56,11 +55,11 @@ for val in scenario_values:
         h = h_input
         p = p_input
         m = m_input
-        if scenario_var == "毛利率变动 m":
+        if scenario_var == "毛利率变动":
             m = val
-        elif scenario_var == "人力成本变动 h":
+        elif scenario_var == "人力成本变动":
             h = val
-        elif scenario_var == "平台费变动 p":
+        elif scenario_var == "平台费变动":
             p = val
         net_profit_rates.append(calc_net_profit_rate(g, h, p, m))
     
@@ -75,7 +74,7 @@ fig.add_hline(y=0, line_dash="dash", line_color="red", annotation_text="盈亏�
 
 fig.update_layout(
     title=f"多场景对比：不同 {scenario_var} 下的净营业利润率变化",
-    xaxis_title="收入增长率 g (%)",
+    xaxis_title="收入增长率 (%)",
     yaxis_title="净营业利润率 (%)",
     width=800,
     height=500
