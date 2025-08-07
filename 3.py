@@ -25,7 +25,7 @@ st.sidebar.header("参数调整（其他参数保持当前值）")
 g_input = st.sidebar.slider("收入增长率", 0.0, 0.4, 0.0, 0.01, format="%.2f")
 st.sidebar.write(f"当前收入增长率: {g_input*100:.2f}%")
 
-h_input = st.sidebar.slider("人力成本变动", -0.2, 0.05, 0.0, 0.01, format="%.2f")
+h_input = st.sidebar.slider("人力成本变动", -0.2, 0.1, 0.0, 0.01, format="%.2f")
 st.sidebar.write(f"当前人力成本变动: {h_input*100:.2f}%")
 
 p_input = st.sidebar.slider("平台费变动", -0.3, 0.0, 0.0, 0.01, format="%.2f")
@@ -43,7 +43,7 @@ x_vals = np.linspace(0, 0.4, 50)
 if scenario_var == "毛利率变动":
     scenario_values = [0.00, 0.04, 0.08, 0.12]
 elif scenario_var == "人力成本变动":
-    scenario_values = [-0.20, -0.10, 0.00, 0.05]
+    scenario_values = [-0.20, -0.10, 0.00, 0.10]
 else:  # 平台费变动 p
     scenario_values = [-0.30, -0.20, -0.10, 0.00]
 
