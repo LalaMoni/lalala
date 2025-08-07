@@ -31,7 +31,7 @@ st.sidebar.write(f"当前人力成本变动: {h_input*100:.2f}%")
 p_input = st.sidebar.slider("平台费变动", -0.3, 0.0, 0.0, 0.01, format="%.2f")
 st.sidebar.write(f"当前平台费变动: {p_input*100:.2f}%")
 
-m_input = st.sidebar.slider("毛利率变动", 0.0, 0.06, 0.0, 0.01, format="%.2f")
+m_input = st.sidebar.slider("毛利率变动", 0.0, 0.12, 0.0, 0.01, format="%.2f")
 st.sidebar.write(f"当前毛利率变动: {m_input*100:.2f}%")
 
 # 分析部分
@@ -41,7 +41,7 @@ x_vals = np.linspace(0, 0.4, 50)
 
 # 不同变量的对比值设定
 if scenario_var == "毛利率变动":
-    scenario_values = [0.00, 0.02, 0.04, 0.06]
+    scenario_values = [0.00, 0.04, 0.08, 0.12]
 elif scenario_var == "人力成本变动":
     scenario_values = [-0.20, -0.10, 0.00, 0.05]
 else:  # 平台费变动 p
